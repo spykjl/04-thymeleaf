@@ -20,11 +20,11 @@ public class EmployeeDao {
     static {
         employees=new HashMap<Integer, Employee>();
 
-        employees.put(101,new Employee(1001,"Karl","jialongkou@163.com",1,new Department(101,"教学部")));
-        employees.put(102,new Employee(1002,"Tom","jialongkou@163.com",0,new Department(102,"市场部")));
-        employees.put(103,new Employee(1003,"Vivi","jialongkou@163.com",1,new Department(103,"教研部")));
-        employees.put(104,new Employee(1004,"jack","jialongkou@163.com",0,new Department(104,"运营部")));
-        employees.put(105,new Employee(1005,"Dom","jialongkou@163.com",1,new Department(105,"后勤部")));
+        employees.put(1001,new Employee(1001,"Karl","jialongkou@163.com",1,new Department(1001,"教学部")));
+        employees.put(1002,new Employee(1002,"Tom","jialongkou@163.com",0,new Department(1002,"市场部")));
+        employees.put(1003,new Employee(1003,"Vivi","jialongkou@163.com",1,new Department(1003,"教研部")));
+        employees.put(1004,new Employee(1004,"jack","jialongkou@163.com",0,new Department(1004,"运营部")));
+        employees.put(1005,new Employee(1005,"Dom","jialongkou@163.com",1,new Department(1005,"后勤部")));
     }
 
     //增加一个员工
@@ -45,6 +45,7 @@ public class EmployeeDao {
     }
 
     public Employee getEmployeeById(Integer id){
+        System.out.println();
         return employees.get(id);
     }
 

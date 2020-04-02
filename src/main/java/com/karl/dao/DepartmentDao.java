@@ -16,11 +16,11 @@ public class DepartmentDao {
     static {
         department=new HashMap<Integer, Department>();
 
-        department.put(101,new Department(101,"教学部"));
-        department.put(102,new Department(102,"市场部"));
-        department.put(103,new Department(103,"教研部"));
-        department.put(104,new Department(104,"运营部"));
-        department.put(105,new Department(105,"后勤部"));
+        department.put(1001,new Department(1001,"教学部"));
+        department.put(1002,new Department(1002,"市场部"));
+        department.put(1003,new Department(1003,"教研部"));
+        department.put(1004,new Department(1004,"运营部"));
+        department.put(1005,new Department(1005,"后勤部"));
     }
 
     //获取部门信息

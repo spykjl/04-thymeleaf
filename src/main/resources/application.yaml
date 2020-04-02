@@ -1,0 +1,30 @@
+spring:
+  thymeleaf:
+    cache: false
+  messages:
+    basename: i18n.login
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    name: root
+    password: Kjl8013566
+
+    #durid
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 60000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+
+mybatis:
+  type-aliases-package: com.karl.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
