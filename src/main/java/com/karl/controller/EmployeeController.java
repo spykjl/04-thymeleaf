@@ -55,6 +55,7 @@ public class EmployeeController {
         Employee emp = employeeDao.getEmployeeById(id);
         model.addAttribute("emp",emp);
         Collection<Department> departments = departmentDao.getDepartments();
+        System.out.println(departments);
         model.addAttribute("departments",departments);
         return "emp/updata";
     }

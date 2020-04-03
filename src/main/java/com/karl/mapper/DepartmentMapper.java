@@ -1,5 +1,6 @@
 package com.karl.mapper;
 
+import com.karl.pojo.Department;
 import com.karl.pojo.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -8,14 +9,8 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface EmployeeMapper {
-    List<Employee> getEmps();
+public interface DepartmentMapper {
+    List<Department> getDepartments();
 
-    Employee getEmp(int id);
-
-    int addEmp(Employee user);
-
-    int updateEmp(Employee user);
-
-    int deleteEmp(int id);
+    Department getDepartmentById(int id);
 }

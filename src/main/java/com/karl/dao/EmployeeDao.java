@@ -1,5 +1,6 @@
 package com.karl.dao;
 
+import com.karl.mapper.EmployeeMapper;
 import com.karl.pojo.Department;
 import com.karl.pojo.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,49 +8,42 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
 public class EmployeeDao {
-    private static Map<Integer, Employee> employees=null;
+
+    @Autowired
+    private EmployeeMapper employeeMapper;
 
     @Autowired
     private DepartmentDao departmentDao;
 
-    //模拟数据库中的数据
-    static {
-        employees=new HashMap<Integer, Employee>();
-
-        employees.put(1001,new Employee(1001,"Karl","jialongkou@163.com",1,new Department(1001,"教学部")));
-        employees.put(1002,new Employee(1002,"Tom","jialongkou@163.com",0,new Department(1002,"市场部")));
-        employees.put(1003,new Employee(1003,"Vivi","jialongkou@163.com",1,new Department(1003,"教研部")));
-        employees.put(1004,new Employee(1004,"jack","jialongkou@163.com",0,new Department(1004,"运营部")));
-        employees.put(1005,new Employee(1005,"Dom","jialongkou@163.com",1,new Department(1005,"后勤部")));
-    }
-
     //增加一个员工
-    //主键自增
-    private static Integer initId=1006;
-
     public void save(Employee employee){
-        if (employee.getId()==null) {
-            employee.setId(initId++);
+        if (employee.getId()!=null&&employeeMapper.getEmp(employee.getId())!=null){
+            employeeMapper.updateEmp(employee);
+        }else {
+            employeeMapper.addEmp(employee);
         }
-        employee.setDepartment(departmentDao.getDepartmentById(employee.getDepartment().getId()));
-
-        employees.put(employee.getId(),employee);
     }
 
     public Collection<Employee> getAll(){
-        return employees.values();
+        List<Employee> emps = employeeMapper.getEmps();
+        for (int i = 0; i < emps.size(); i++) {
+            Employee employee = emps.get(i);
+            employee.setDepartment(departmentDao.getDepartmentById(employee.getDepartmentId()));
+        }
+        return emps;
     }
 
     public Employee getEmployeeById(Integer id){
         System.out.println();
-        return employees.get(id);
+        return employeeMapper.getEmp(id);
     }
 
     public void delete(Integer id){
-        employees.remove(id);
+        employeeMapper.deleteEmp(id);
     }
 }

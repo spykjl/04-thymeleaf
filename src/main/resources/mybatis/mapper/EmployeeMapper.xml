@@ -4,22 +4,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.karl.mapper.EmployeeMapper">
     <select id="getEmps" resultType="Employee">
-        select * from
+        select * from employee
     </select>
 
     <select id="getEmp" resultType="Employee">
-        select * from user where id=#{id}
+        select * from employee where id=#{id}
     </select>
 
-    <insert id="addUser" parameterType="User">
-        insert into user (id,username,age) values (#{id},#{username},#{age})
+    <insert id="addEmp" parameterType="Employee">
+        insert into employee (id,lastName,email,gender,departmentId,birth) values (#{id},#{lastName},#{email},#{gender},#{departmentId},#{birth})
     </insert>
 
-    <update id="updateUser" parameterType="User">
-        update user set name=#{name},adge=#{age} where id=#{id}
+    <update id="updateEmp" parameterType="Employee">
+        update employee set lastName=#{lastName},email=#{email},gender=#{gender},departmentId=#{departmentId},birth=#{birth} where id=#{id}
     </update>
 
-    <delete id="deleteUser" parameterType="int">
-        delete from user where id=#{id}
+    <delete id="deleteEmp" parameterType="int">
+        delete from employee where id=#{id}
     </delete>
 </mapper>

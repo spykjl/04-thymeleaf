@@ -71,7 +71,7 @@
 						<!-- Single button -->
 						<div class="form-group">
 							<label>department</label>
-							<select class="form-control" name="department.id">
+							<select class="form-control" name="departmentId">
 								<option th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
 							</select>
 						</div>

@@ -17,6 +17,7 @@ public class Employee {
     private Integer gender;
 
     private Department department;
+    private int departmentId;
     private Date birth;
 
     public Employee(Integer id, String lastName, String email, Integer gender, Department department) {

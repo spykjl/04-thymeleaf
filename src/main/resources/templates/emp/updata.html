@@ -72,8 +72,8 @@
 							<!-- Single button -->
 							<div class="form-group">
 							<label>department</label>
-							<select class="form-control" name="department.id">
-								<option th:selected="${dept.getId()==emp.getDepartment().getId()}" th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
+							<select class="form-control" name="departmentId">
+								<option th:selected="${dept.getId()==emp.getDepartmentId()}" th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
 							</select>
 						</div>
 

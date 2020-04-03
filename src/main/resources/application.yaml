@@ -4,12 +4,11 @@ spring:
   messages:
     basename: i18n.login
   datasource:
-    url: jdbc:mysql://localhost:3306/employee?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    name: root
-    password: Kjl8013566
-
-    #durid
+    url: jdbc:mysql://localhost:3306/employee?useUnicode=true&amp&characterEncoding=UTF-8
+#    driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+    password: 123456
+    username: root
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -24,6 +23,7 @@ spring:
 
     filters: stat,wall,log4j
     maxPoolPreparedStatementPerConnectionSize: 20
+
 
 mybatis:
   type-aliases-package: com.karl.pojo
